@@ -1,0 +1,23 @@
+========================================================================
+10_design_time_validation — stratification, thresholds, and the headline trap
+========================================================================
+
+[1] population: 5000 cases across 5 segments (78-10-7-3-2)
+
+[2] the headline-vs-segment trap, on the full population
+    mainstream     n=3900  acc= 0.902  ±0.009
+    thin_file      n= 500  acc= 0.900  ±0.026
+    self_employed  n= 350  acc= 0.800  ±0.042
+    new_product    n= 150  acc= 0.547  ±0.080
+    vulnerable     n= 100  acc= 0.440  ±0.097
+    production-weighted headline: 87.500%
+    uniform-segment headline    : 71.779%
+
+[3] naive 200-case sample (production-proportional) vs stratified 40-20-15-15-10%
+    naive-200                        vulnerable: n=  4 acc=0.250 ±0.424  <- too noisy for 2LoD review
+    stratified-200                   vulnerable: n= 20 acc=0.400 ±0.215  <- too noisy for 2LoD review
+    quota-first-200 (40 vulnerable)  vulnerable: n= 40 acc=0.550 ±0.154  <- too noisy for 2LoD review
+    The rule works backwards from per-segment interval targets to the total, not forwards.
+
+[4] find_min_cost_threshold at K=5 (an FN costs five FPs)
+    minimum-cost threshold t*=0.48  (cost=818.0, FN=58, FP=528)

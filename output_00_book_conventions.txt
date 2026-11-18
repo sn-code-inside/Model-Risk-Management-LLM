@@ -1,0 +1,27 @@
+========================================================================
+00_book_conventions — conventions check
+========================================================================
+
+[1] IEEE citation format
+    The US MRM baseline is SR 26-2 [2]; the UK baseline is SS1/23 [5];
+    the EU regime is the AI Act [6].
+
+[2] Artefact taxonomy: eight classes
+    - foundation_model
+    - application
+    - prompt_template
+    - embedding_model
+    - retrieval_index
+    - output_validator
+    - agent_tool
+    - agent_memory
+
+[3] Attachment-point structure: worked example (six evidence items)
+      per-artefact: 3 item(s), all pass = True
+       composition: 2 item(s), all pass = True
+     orchestration: 1 item(s), all pass = True
+
+[4] Regulatory citation idiom
+    'SR 26-2 § IV; SS1/23 Principle 4; EU AI Act Art. 14' — instrument, division, date checked at use.
+
+All conventions verified. Ready for Chapter 1.

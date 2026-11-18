@@ -1,0 +1,22 @@
+========================================================================
+06_inventory_schema — the inventory as a queryable object
+========================================================================
+
+[population] 3 systems, 24 artefacts
+
+[query 1] Tier-1 systems: ['summariser', 'kyc-agent']
+
+[query 2] Decisioning-purpose systems: ['kyc-agent']
+
+[query 3] Validation outcome CONDITIONAL: ['summariser']
+
+[query 4] Systems with agent tools: ['kyc-agent']
+
+[query 5] Stale validation (>6 months at 2026-07-14): ['kyc-agent']
+
+[portfolio summary]
+    SYS-001 chatbot     tier=T2 purpose=informational    artefacts= 7 validation=PASS        scope=3 regimes
+    SYS-002 summariser  tier=T1 purpose=decision-support artefacts= 4 validation=CONDITIONAL scope=2 regimes
+    SYS-003 kyc-agent   tier=T1 purpose=decisioning      artefacts=13 validation=PENDING     scope=3 regimes
+
+In production the Ch 5 extractor and Ch 3 scoper run on add and on every attribute change.

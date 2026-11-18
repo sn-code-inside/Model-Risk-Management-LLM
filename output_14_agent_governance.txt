@@ -1,0 +1,32 @@
+========================================================================
+14_agent_governance — capability x reversibility -> approval mode
+========================================================================
+
+[1] the eleven-tool KYC catalogue and its approval modes
+    registry.company_profile       read / reversible   -> auto-approve
+    registry.officers              read / reversible   -> auto-approve
+    registry.psc                   read / reversible   -> auto-approve
+    sanctions.screen               read / reversible   -> auto-approve
+    adverse_media.search           read / reversible   -> auto-approve
+    cifas.check                    read / reversible   -> auto-approve
+    case.update_notes             write / reversible   -> auto-approve-with-log
+    case.attach_document          write / reversible   -> auto-approve-with-log
+    case.set_risk_rating          write / costly       -> auto-approve-with-log
+    customer.request_documents    write / costly       -> auto-approve-with-log
+    decision.approve             decide / irreversible -> human-approval-required
+
+[2] a KYC run through C1-C4
+    registry.company_profile     -> auto-approve               approved=True by system
+    sanctions.screen             -> auto-approve               approved=True by system
+    case.update_notes            -> auto-approve-with-log      approved=True by system
+    case.set_risk_rating         -> auto-approve-with-log      approved=True by system
+    decision.approve             -> human-approval-required    approved=True by named-approver
+
+[3] C4 audit trail (paste into the case file)
+    {'tool': 'registry.company_profile', 'mode': 'auto-approve', 'approved': True, 'approver': 'system', 'ts': '2026-07-14T00:00:00+00:00'}
+    {'tool': 'sanctions.screen', 'mode': 'auto-approve', 'approved': True, 'approver': 'system', 'ts': '2026-07-14T00:00:00+00:00'}
+    {'tool': 'case.update_notes', 'mode': 'auto-approve-with-log', 'approved': True, 'approver': 'system', 'ts': '2026-07-14T00:00:00+00:00'}
+    {'tool': 'case.set_risk_rating', 'mode': 'auto-approve-with-log', 'approved': True, 'approver': 'system', 'ts': '2026-07-14T00:00:00+00:00'}
+    {'tool': 'decision.approve', 'mode': 'human-approval-required', 'approved': True, 'approver': 'named-approver', 'ts': '2026-07-14T00:00:00+00:00'}
+
+Off-catalogue and injected actions never reach C3; the human sits exactly where irreversibility sits.

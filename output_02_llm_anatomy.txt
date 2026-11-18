@@ -1,0 +1,22 @@
+========================================================================
+02_llm_anatomy — every primitive, from first principles
+========================================================================
+
+[1] Tokenisation: 'The applicant has 11 CCJs from 2019'
+    tokens (10): ['the', ' applicant', ' has', ' 11', ' CCJ', 's', ' from', ' 20', '1', '9']
+    ids: [29, 5, 7, 2, 4, 27, 6, 3, 9, 12]
+    NOTE: '11' and '2019' fragment — numerals are not atomic to the model.
+
+[2] Temperature: empirical frequencies over 20,000 draws
+    T=0.1: p=[1. 0. 0. 0. 0.] empirical=[1. 0. 0. 0. 0.]
+    T=1.0: p=[0.605 0.272 0.082 0.03  0.011] empirical=[0.61  0.27  0.079 0.031 0.01 ]
+    T=2.0: p=[0.417 0.28  0.153 0.093 0.056] empirical=[0.417 0.28  0.154 0.092 0.058]
+
+[3] Truncation: top-k=2 vs top-p=0.9 on the same distribution
+      top-k(2): support=2 empirical=[0.693 0.307 0.    0.    0.   ]
+    top-p(0.9): support=3 empirical=[0.633 0.28  0.088 0.    0.   ]
+
+[4] Parameter counting for three reference scales
+     GPT-2-small: layers=12 d_model=  768 vocab= 50257 -> ~0.1B params
+      Llama-3-8B: layers=32 d_model= 4096 vocab=128256 -> ~7.0B params
+      GPT-3-175B: layers=96 d_model=12288 vocab= 50257 -> ~174.6B params

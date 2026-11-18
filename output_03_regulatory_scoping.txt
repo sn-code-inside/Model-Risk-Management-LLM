@@ -1,0 +1,35 @@
+========================================================================
+03_regulatory_scoping — one inventory, per-use-case classification
+========================================================================
+
+Retail credit decisioning assistant  (EU, UK)
+    - PRA SS1/23
+        UK PRA-regulated bank: model within Principle 1 definition; principles apply regardless of the US carve-out
+    - EU AI Act — Annex III high-risk (5(b))
+        Creditworthiness scoring of natural persons; high-risk obligations apply from 2 Dec 2027 (Digital Omnibus)
+    - FCA Consumer Duty (PS22/9)
+        Retail customers: four-outcomes evidence attaches to the use case
+    - GDPR/UK GDPR Article 22
+        Automated decision with legal or similarly significant effect; UK position as amended by DUAA 2025
+    - Equality Act 2010 s.19
+        Indirect-discrimination exposure through proxy features
+    - SM&CR
+        Named senior-manager accountability for the model risk framework
+
+AML alert triage  (US)
+    - SR 26-2 (principles-by-analogy)
+        Generative/agentic AI is outside SR 26-2's formal scope; the letter expects the underlying principles to be applied
+    - BSA/AML supervisory expectations
+        SR 21-8 rescinded into SR 26-2; AML models covered by the general framework
+
+Internal IT support chatbot  (UK)
+    - PRA SS1/23
+        UK PRA-regulated bank: model within Principle 1 definition; principles apply regardless of the US carve-out
+    - SM&CR
+        Named senior-manager accountability for the model risk framework
+
+Insurance underwriting assistant  (EU)
+    - EU AI Act — Annex III high-risk (5(c))
+        Life/health insurance pricing high-risk category
+
+Four use cases, four different regulatory scopes — a blanket rating cannot capture this.

@@ -1,0 +1,35 @@
+========================================================================
+05_inventory_artefacts — from system description to inventory rows
+========================================================================
+
+chatbot: 7 artefacts (expected 7)
+    [HIGH  ]  foundation_model  chatbot:fm1            vendor-supplied generator; version and sampling config are risk-bearing
+    [HIGH  ]       application  chatbot:app            firm wrapper code; hosts most preventive controls
+    [HIGH  ]   prompt_template  chatbot:prompt1        behaviour-determining text; fingerprinted and versioned
+    [HIGH  ]   prompt_template  chatbot:prompt2        behaviour-determining text; fingerprinted and versioned
+    [MEDIUM]   embedding_model  chatbot:embedder       determines retrieval geometry; version changes move the corpus
+    [MEDIUM]   retrieval_index  chatbot:index          snapshot is part of the effective input distribution
+    [HIGH  ]  output_validator  chatbot:validator1     last preventive control before egress (schema/judge/HITL)
+
+summariser: 4 artefacts (expected 4)
+    [HIGH  ]  foundation_model  summariser:fm1         vendor-supplied generator; version and sampling config are risk-bearing
+    [HIGH  ]       application  summariser:app         firm wrapper code; hosts most preventive controls
+    [HIGH  ]   prompt_template  summariser:prompt1     behaviour-determining text; fingerprinted and versioned
+    [HIGH  ]  output_validator  summariser:validator1  last preventive control before egress (schema/judge/HITL)
+
+kyc-agent: 13 artefacts (expected 13)
+    [HIGH  ]  foundation_model  kyc-agent:fm1          vendor-supplied generator; version and sampling config are risk-bearing
+    [HIGH  ]       application  kyc-agent:app          firm wrapper code; hosts most preventive controls
+    [HIGH  ]   prompt_template  kyc-agent:prompt1      behaviour-determining text; fingerprinted and versioned
+    [HIGH  ]  output_validator  kyc-agent:validator1   last preventive control before egress (schema/judge/HITL)
+    [HIGH  ]        agent_tool  kyc-agent:tool1        action surface; approval mode set by capability x reversibility
+    [HIGH  ]        agent_tool  kyc-agent:tool2        action surface; approval mode set by capability x reversibility
+    [HIGH  ]        agent_tool  kyc-agent:tool3        action surface; approval mode set by capability x reversibility
+    [HIGH  ]        agent_tool  kyc-agent:tool4        action surface; approval mode set by capability x reversibility
+    [HIGH  ]        agent_tool  kyc-agent:tool5        action surface; approval mode set by capability x reversibility
+    [HIGH  ]        agent_tool  kyc-agent:tool6        action surface; approval mode set by capability x reversibility
+    [HIGH  ]        agent_tool  kyc-agent:tool7        action surface; approval mode set by capability x reversibility
+    [HIGH  ]        agent_tool  kyc-agent:tool8        action surface; approval mode set by capability x reversibility
+    [MEDIUM]      agent_memory  kyc-agent:memory       persistent state; retention and content governed as first-class artefact
+
+Outputs load directly into the Chapter 6 inventory schema.

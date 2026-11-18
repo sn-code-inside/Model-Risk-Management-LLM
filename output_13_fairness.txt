@@ -1,0 +1,20 @@
+========================================================================
+13_fairness — three criteria, one dataset, and why they cannot all hold
+========================================================================
+
+[1] per-group primitives
+    group 0: base rate=0.552 selection=0.540 TPR=0.933 FPR=0.055
+    group 1: base rate=0.341 selection=0.354 TPR=0.928 FPR=0.057
+
+[2] the three criteria with bootstrap CIs (threshold: 5pp)
+    demographic parity diff : 0.186  CI [0.162,0.211]  -> FAIL at 5pp
+    equalised odds max diff : 0.005  CI [0.002,0.025]  -> PASS at 5pp
+    calibration parity ECE  : group0=0.222 group1=0.247 |diff|=0.025
+    Same dataset, same scorer: DP fails while EO passes — Chouldechova/Kleinberg by example.
+
+[3] Consumer Duty checklist on the retail chatbot
+    Products and services   : FAIL — no target-market appropriateness testing
+    Price and value         : PASS
+    Consumer understanding  : PASS
+    Consumer support        : FAIL — vulnerable-segment accuracy 79% vs 85% threshold
+    overall: BLOCKED

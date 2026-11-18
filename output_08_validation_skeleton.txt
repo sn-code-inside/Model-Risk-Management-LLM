@@ -1,0 +1,21 @@
+========================================================================
+08_validation_skeleton — evidence, attachment points, and the sign-off contract
+========================================================================
+
+[1] credit-memo summariser: 7 evidence items
+    [ per-artefact] groundedness                   0.962 >= 0.95   n=400   PASS
+    [ per-artefact] retrieval_recall@5             0.914 >= 0.9    n=400   PASS
+    [ per-artefact] schema_valid_rate             0.9995 >= 0.999  n=2000  PASS
+    [  composition] task_accuracy                  0.891 >= 0.85   n=400   PASS
+    [  composition] vulnerable_segment_accuracy    0.862 >= 0.85   n=120   PASS
+    [orchestration] fallback_correct_rate           0.99 >= 0.98   n=200   PASS
+    [orchestration] p95_latency_s                    4.2 <= 6.0    n=2000  PASS
+    completeness: True   all pass: True
+
+[2] sign-off, fingerprint-bound
+    fingerprint c7b127f34c41bbf6 — valid for current config: True
+
+[3] fingerprint drift: a single character changes in the configuration
+    valid after vendor update: False
+    the sign-off invalidates mechanically; the deployment pipeline can refuse the drifted config.
+    (Ch 9: this is a detective control — pair it with version pinning and vendor notice terms.)

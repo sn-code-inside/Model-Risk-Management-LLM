@@ -1,0 +1,31 @@
+========================================================================
+17_incident_response — IR-2026-0042, end to end
+========================================================================
+
+[1] classification: SEV-1 (612 customers, 4.7h, critical operational severity)
+[2] notification rule (mechanical default): notify = True
+    -> SEV-1 presumed notifiable under SUP 15.3; the legal judgement remains with compliance.
+
+[3] rendered post-mortem
+
+POST-MORTEM IR-2026-0042 — customer-correspondence assistant (SEV-1, blameless)
+--------------------------------------------------------------------
+1. WHAT HAPPENED
+   The assistant emitted malformed correspondence for 4.7 hours after a silent vendor model update.
+2. WHY IT HAPPENED
+   The foundation-model version was not pinned; the output validator logged failures but did not block the send queue.
+3. WHAT WE DID
+   Kill switch at T+14 min; fallback to human drafting; customer remediation letters issued same day.
+4. WHAT CHANGES
+   - [Platform] pin foundation-model version; deployment refuses unpinned configs (due 2026-06-10)
+   - [Vendor mgmt] invoke change-notice clause; obtain vendor changelog feed (due 2026-06-17)
+   - [2LoD] add JSON-quoting regression case to the Ch 11 frozen baseline (due 2026-06-12)
+   - [Ops] schema-validator hard-fail before send queue, not after (due 2026-06-14)
+
+TIMELINE
+   2026-06-03 09:12  monitoring alert: schema-valid rate 94.1% vs 99.9% floor (control chart breach)
+   2026-06-03 09:26  on-call confirms malformed outputs reaching the send queue; kill switch engaged
+   2026-06-03 09:31  fallback to human-drafted correspondence; customer impact assessment started
+   2026-06-03 11:05  root cause isolated: vendor foundation-model update changed JSON quoting behaviour
+   2026-06-03 13:40  impact confirmed: 612 customers received malformed correspondence over 4.7 hours
+   2026-06-04 10:00  post-mortem held (blameless); actions assigned

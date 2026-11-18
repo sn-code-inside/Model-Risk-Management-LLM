@@ -1,0 +1,19 @@
+========================================================================
+19_per_deal_evidence — the per-deal-type evidence pattern (Fig. 19.3)
+========================================================================
+
+[1] per-type evidence rows (80 deals)
+    working_capital  n=20 share=34%  cov=0.95 exp=1.00 nar=0.90  min=0.90 -> APPROVE
+    term_loan        n=18 share=27%  cov=0.94 exp=0.94 nar=0.94  min=0.94 -> APPROVE
+    asset_finance    n=14 share=18%  cov=0.93 exp=1.00 nar=0.93  min=0.93 -> APPROVE
+    trade_finance    n=12 share=12%  cov=0.83 exp=0.92 nar=0.75  min=0.75 -> CONDITIONAL
+    project_finance  n=10 share=6%  cov=0.60 exp=0.70 nar=0.50  min=0.50 -> REJECT
+    restructuring    n= 6 share=3%  cov=0.50 exp=0.67 nar=0.33  min=0.33 -> REJECT
+
+[2] why the pooled headline misleads
+    pooled all-metrics-ok rate: 80.0% — dominated by the types where the system works
+
+[3] deployment recommendation (goes into the validation file)
+    APPROVE      : working_capital, term_loan, asset_finance
+    CONDITIONAL  : trade_finance — HITL review on every case; re-evaluate at n>=30
+    REJECT       : project_finance, restructuring — route to human drafting; no LLM output

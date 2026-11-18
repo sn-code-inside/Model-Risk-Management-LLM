@@ -1,0 +1,25 @@
+========================================================================
+01_variance — non-determinism, sampling, and interval discipline
+========================================================================
+
+[1] Box 1.1: the same logits, three temperatures
+    T=0.1: p(argmax)=1.000 | empirical: approve=1.000, refer=0.000, decline=0.000, escalate=0.000
+    T=1.0: p(argmax)=0.632 | empirical: approve=0.634, refer=0.231, decline=0.102, escalate=0.033
+    T=2.0: p(argmax)=0.447 | empirical: approve=0.449, refer=0.274, decline=0.178, escalate=0.100
+
+[2] Bootstrap CI on a 200-case accuracy sample
+    accuracy = 0.910, 95% CI [0.870, 0.945] (width 0.075)
+
+[3] Figure 1.4: CI width vs sample size (convergence chart)
+    n=   50: CI width = 0.1800
+    n=  100: CI width = 0.1300
+    n=  200: CI width = 0.0950
+    n=  400: CI width = 0.0650
+    n=  800: CI width = 0.0475
+    n= 1600: CI width = 0.0337
+    n= 3200: CI width = 0.0228
+    chart written to 01_convergence.png
+
+[4] Exercise stubs: non-stationary drift and tail statistics
+    regime means: first half 0.902, second half 0.794 — a single pooled CI hides the break
+    latency: mean 1.86s vs p95 4.97s — the tail, not the mean, is the user experience

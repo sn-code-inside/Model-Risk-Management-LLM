@@ -1,0 +1,27 @@
+========================================================================
+04_application_composition — what 'the application' actually means
+========================================================================
+
+[1] credit-memo summariser: 6 artefacts
+     foundation_model  gpt-x-enterprise@2026-05-01  vendor=VendorA  pinned=True
+      embedding_model  embed-large@3.1  vendor=VendorA  pinned=True
+      retrieval_index  policy-corpus@2026-06-30  vendor=firm  pinned=True
+      prompt_template  memo-template@2.3  vendor=firm  pinned=True
+     output_validator  memo-schema-validator@1.4  vendor=firm  pinned=True
+          application  summariser-service@0.9.12  vendor=firm  pinned=True
+
+[2] Accessors: vendor-supplied = ['gpt-x-enterprise', 'embed-large']
+               firm-owned      = ['policy-corpus', 'memo-template', 'memo-schema-validator', 'summariser-service']
+
+[3] trace_request: the nine-event structured trace
+    1. [     ingress] summariser-service@0.9.12    request received (68 chars); schema check passed
+    2. [ pre-process] summariser-service@0.9.12    PII scan and injection-pattern guard passed
+    3. [       embed] embed-large@3.1              request embedded to 1,536-dim vector
+    4. [    retrieve] policy-corpus@2026-06-30     top-5 chunks retrieved from snapshot 2026-06-30T00:00Z
+    5. [    assemble] memo-template@2.3            prompt rendered; fingerprint a41c…9f2e
+    6. [    generate] gpt-x-enterprise@2026-05-01  completion at T=0.2, seed pinned=True
+    7. [    validate] memo-schema-validator@1.4    output schema valid; no fabricated-citation pattern
+    8. [post-process] summariser-service@0.9.12    audit fields attached; telemetry emitted
+    9. [      egress] summariser-service@0.9.12    response returned to caller
+
+Every event above is a telemetry obligation; Chapter 5 develops the extraction machinery.

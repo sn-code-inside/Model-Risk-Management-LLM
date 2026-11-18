@@ -1,0 +1,29 @@
+MRM for LLMs in Financial Services — companion code run manifest
+Executed: 2026-07-14 06:47Z  |  Python 3.12.3  |  numpy 2.4.4  |  matplotlib 3.10.8
+All scripts are deterministic (fixed seeds); asserts pin the book's worked numbers.
+----------------------------------------------------------------------
+PASS 00_book_conventions.py               (27 lines of report output)
+PASS 01_variance.py                       (25 lines of report output)
+PASS 02_llm_anatomy.py                    (22 lines of report output)
+PASS 03_regulatory_scoping.py             (35 lines of report output)
+PASS 04_application_composition.py        (27 lines of report output)
+PASS 05_inventory_artefacts.py            (35 lines of report output)
+PASS 06_inventory_schema.py               (22 lines of report output)
+PASS 07_prompt_engineering.py             (26 lines of report output)
+PASS 08_validation_skeleton.py            (21 lines of report output)
+PASS 09_vendor_inventory.py               (20 lines of report output)
+PASS 10_design_time_validation.py         (23 lines of report output)
+PASS 11_validation_harness.py             (26 lines of report output)
+PASS 12_extended_metrics.py               (28 lines of report output)
+PASS 13_fairness.py                       (20 lines of report output)
+PASS 14_agent_governance.py               (32 lines of report output)
+PASS 15_redteam_harness.py                (23 lines of report output)
+PASS 16_monitoring_harness.py             (24 lines of report output)
+PASS 17_incident_response.py              (31 lines of report output)
+PASS 18_consumer_duty_validator.py        (19 lines of report output)
+PASS 19_per_deal_evidence.py              (19 lines of report output)
+PASS 20_vulnerability_overlay.py          (20 lines of report output)
+PASS 21_information_barrier_check.py      (28 lines of report output)
+PASS 22_firm_self_assessment.py           (22 lines of report output)
+----------------------------------------------------------------------
+Failures: 0 / 23

@@ -1,0 +1,22 @@
+========================================================================
+22_firm_self_assessment — twenty-one questions, one board conversation
+========================================================================
+
+[1] phase scores (Box 22.1: 80% rule)
+    Phase 1 Foundations           : 5/7  (71%)
+    Phase 2 Validation discipline : 5/7  (71%)
+    Phase 3 Operations            : 1/4  (25%)
+
+[2] classification: the firm is still in Phase 1
+    71% on Phase 1 does not clear the 80% bar — foundations first, whatever Phase 2 looks like.
+
+[3] gap report (7 items — the operational priority list)
+    [P1-5] (Ch 9) Is there a vendor inventory with the four-provision LLM contractual minimum?
+    [P1-7] (Ch 6) Are unpinned or un-versionable artefacts surfaced as open findings?
+    [P2-3] (Ch 11) Are LLM judges calibrated against human ratings (weighted kappa) before use?
+    [P2-6] (Ch 15) Is red-teaming run as a standing cycle with severity-by-ease dispositions?
+    [P3-2] (Ch 17) Do incidents follow the severity taxonomy with the notification default applied?
+    [P3-3] (Ch 14) Are agent tools gated by the capability-x-reversibility approval matrix?
+    [P3-4] (Ch 22) Is the framework reviewed against the revision-horizon catalogue twice a year?
+
+Production deployments join this to the Ch 6 inventory so gaps name applications, not categories.

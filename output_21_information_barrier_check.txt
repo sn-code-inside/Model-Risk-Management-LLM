@@ -1,0 +1,28 @@
+========================================================================
+21_information_barrier_check — the boundary lives in the retrieval function
+========================================================================
+
+[1] naive unified index (public-side research analyst issuing the probes)
+    LEAK ['MA-103']              <- "any deal activity around HighStreet Retail plc"
+    LEAK ['MA-101']              <- "acquisition premium HighStreet Retail"
+    LEAK ['MA-102', 'MA-101']    <- "Project FALCON details"
+    LEAK ['MA-103']              <- "financing structure for the HighStreet take-private"
+    LEAK ['MA-103']              <- "announcement timetable HighStreet Retail plc"
+    clean                        <- "UK grocery valuation multiples"
+    clean                        <- "rates path consumer spending outlook"
+    clean                        <- "sector overview margin outlook grocery consolidation"
+    cross-side leak rate: 5/8
+
+[2] side-aware retrieval (same probes, caller side enforced)
+    clean                        <- "any deal activity around HighStreet Retail plc"
+    clean                        <- "acquisition premium HighStreet Retail"
+    clean                        <- "Project FALCON details"
+    clean                        <- "financing structure for the HighStreet take-private"
+    clean                        <- "announcement timetable HighStreet Retail plc"
+    clean                        <- "UK grocery valuation multiples"
+    clean                        <- "rates path consumer spending outlook"
+    clean                        <- "sector overview margin outlook grocery consolidation"
+    cross-side leak rate: 0/8
+
+Headline metric for the validation file: cross-side leak rate 5/8 (naive) vs 0/8 (side-aware).
+MAR/MiFID relevance follows from the leak, not from the retrieval technology.

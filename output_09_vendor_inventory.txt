@@ -1,0 +1,20 @@
+========================================================================
+09_vendor_inventory — the vendor stack as a governed object
+========================================================================
+
+[1] inventory
+    VendorA  layer=foundation_model tier=CRITICAL systems=3 dd=2026-02-10 llm-minimum=OK
+    VendorB  layer=foundation_model tier=HIGH     systems=1 dd=2025-04-01 llm-minimum=INADEQUATE
+    ToolCo   layer=agent_tool       tier=MEDIUM   systems=1 dd=2026-06-05 llm-minimum=OK
+
+[2] queries
+    foundation-model layer : ['VendorA', 'VendorB']
+    CRITICAL tier          : ['VendorA']
+    overdue due diligence  : ['VendorB']
+    inadequate contracts   : [('VendorB', ['version_pinning', 'deprecation_notice', 'audit_rights'])]
+
+[3] concentration analysis (flag at >= 50% of layer)
+    agent_tool      : ToolCo=100%   concentration flag: ToolCo
+    foundation_model: VendorA=75%, VendorB=25%   concentration flag: VendorA
+
+One query surface replaces three spreadsheets; VendorA's 75% share is the CTP-regime conversation.

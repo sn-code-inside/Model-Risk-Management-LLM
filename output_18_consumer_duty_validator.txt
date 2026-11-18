@@ -1,0 +1,19 @@
+========================================================================
+18_consumer_duty_validator — the four-outcomes overlay as a release gate
+========================================================================
+
+    version 2.3:
+      Products and services    PASS
+      Price and value          PASS
+      Consumer understanding   PASS
+      Consumer support         PASS
+      OVERALL: PASS — release may proceed
+
+    version 2.4 (candidate):
+      Products and services    PASS
+      Price and value          PASS
+      Consumer understanding   FAIL  missing: ['CU-2:comprehension_test_pass_rate']
+      Consumer support         FAIL  failing: ['CS-1:vulnerable_segment_accuracy=0.79 vs >=0.85']
+      OVERALL: BLOCKED — release gate holds
+
+The overlay names the evidence, not just the verdict — that is what 2LoD review needs.

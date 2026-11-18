@@ -1,0 +1,28 @@
+========================================================================
+12_extended_metrics — calibration, the RAG triplet, tails, refusals
+========================================================================
+
+[1] ECE with bootstrap CI, equal-width vs adaptive bins (n=2,000)
+    ECE = 0.0751  95% CI [0.0587, 0.0961]   adaptive-bin ECE = 0.0742
+
+[2] reference-free RAG triplet on the worked example
+    groundedness = 0.75 (the Leeds claim is unsupported)
+    faithfulness = 1.00   answer relevance = 0.57
+
+[3] heavy-tailed latency: the mean is not the user experience
+    mean = 2.23s   p50 = 1.52s   p95 = 6.44s   p99 = 11.73s
+
+[4] refusal rate as a model-risk metric (weekly, with a vendor update at week 8)
+    week  1: refusal rate 0.031
+    week  2: refusal rate 0.027
+    week  3: refusal rate 0.033
+    week  4: refusal rate 0.028
+    week  5: refusal rate 0.032
+    week  6: refusal rate 0.032
+    week  7: refusal rate 0.027
+    week  8: refusal rate 0.036
+    week  9: refusal rate 0.072  <- step change: vendor safety-filter tightening?
+    week 10: refusal rate 0.076
+    week 11: refusal rate 0.071
+    week 12: refusal rate 0.068
+    An unexpectedly high refusal rate is a monitoring alert, not a safety comfort.

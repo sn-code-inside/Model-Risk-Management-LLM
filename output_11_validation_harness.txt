@@ -1,0 +1,26 @@
+========================================================================
+11_validation_harness — power, bootstrap, judge, regression, variance
+========================================================================
+
+[1] power analysis
+    half-width ±5% at p≈0.85 -> n ≥ 196
+    half-width ±3% at p≈0.85 -> n ≥ 545
+    half-width ±2% at p≈0.85 -> n ≥ 1225
+
+[2] bootstrap evaluation on the Figure 11.3 binary classifier (n=400)
+    accuracy 0.877, 95% CI [0.845, 0.910], threshold 0.85 -> NOT DEMONSTRATED
+
+[3] LLM-as-judge calibration (Figure 11.4)
+    quadratic-weighted kappa = 0.902  mean bias = 0.063  -> adequate
+
+[4] regression test: simulated vendor-update degradation
+    task_accuracy  baseline=0.891 current=0.842 delta=-0.049  REGRESSED
+    groundedness   baseline=0.962 current=0.958 delta=-0.004  ok
+
+[5] Section 11.4.6: variance_components on a crossed 4-seed x 5-paraphrase design
+    component variances: seed=3.04e-05  paraphrase=8.41e-05  residual=2.32e-05
+    non-shrinking share of pipeline variance: 61%
+    naive CI half-width ±0.031 -> pipeline-corrected ±0.038
+    The paraphrase component does not shrink with n: a large-n evaluation can be precisely wrong.
+
+Each block above pastes directly into a validation report.
